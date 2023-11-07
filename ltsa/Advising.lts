@@ -1,0 +1,4 @@
+STUDENT = (sendCred->sendAdvising->recvAdvMenu->(recvAuthorize->STUDENT|recvError->STUDENT)).
+DATABASE = (sendVerify->recvVerify->recvAdvising->sendAdvMenu->recvAddDrop->sendUpdateList->recvUpdateList->sendNewList->(sendAuthorize->DATABASE|sendError->DATABASE)).
+
+||ADVISING = (STUDENT || DATABASE)/{sendCred/recvCred, sendAdvising/recvAdvising, sendAddDrop/recvAddDrop, sendVerify/recvVerify, sendAdvising/recvAdvising, sendAdvMenu/recvAdvMenu, sendAddDrop/recvAddDrop, sendUpdateList/recvUpdateList,sendNewList/recvNewList}.

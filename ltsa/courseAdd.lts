@@ -1,0 +1,5 @@
+FACULTY = (sendCred->sendCourseAdd->(recvAuthorize->FACULTY|recvError->FACULTY)).
+DATABASE = (sendverify->recvCred->recvVerify->sendRequest->recvCourseAdd->(sendAuthorize->sendUpdate->recvUpdate->recvAccept->DATABASE|sendError->recvReject->DATABASE)).
+ADMIN = (recvRequest->(sendAccept->ADMIN|sendReject->ADMIN)).
+
+||COURSEADD = (FACULTY || DATABASE || ADMIN)/{sendCred/recvCred, sendCourseAdd/recvCourseAdd, sendVerify/recvVerify, sendAuthorize/recvAuthorize, sendError/recvError, sendUpdate/recvUpdate, sendRequest/recvRequest, sendAccept/recvAccept, sendReject/recvReject}.

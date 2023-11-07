@@ -1,0 +1,5 @@
+ADMIN = (sendLogin->sendStuFacData->(recvHomeUI->ADMIN|recvErrorMSg->ADMIN)).
+EWUPORTAL = (sendGivenData->(recvAuthorize->EWUPORTAL|recvDeny->EWUPORTAL)).
+DATABASE = (recvGivenData->sendValidation->recvValidation->sendUpdateDatabase->recvUpdateDatabase->(sendAuthorization->DATABASE|sendDeny->DATABASE)).
+
+||STUDENTFACULTYADD = (ADMIN || EWUPORTAL || DATABASE)/{sendLogin/recvLogin, sendStuFacData/recvStuFacData, sendGivenData/recvGivenData, sendHomeUI/recvHomeUI, sendErrorMsg/recvErrorMsg, sendvalidation/recvValidation, sendAuthorize/recvAuthorize, sendDeny/recvDeny, sendUpdateDatabase/recvUpdateDatabase}.
